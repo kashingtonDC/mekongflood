@@ -1,14 +1,13 @@
 /* 
     Document   	: wms.js
 
-	Modified on : 18 Nov 2012
-	By			: "Sean Maday <seanmaday@gmail.com>"
+	Modified on : 30 Dec 2015
+	By			: Aakash Ahamed (aakash.ahamed@nasa.gov)
 
-    Created on 	: Feb 16, 2011
-    Author     	: "Gavin Jackson <Gavin.Jackson@csiro.au>"
-    URL			: http://www.jacksondogphotography.com/googlewms/
+    Refactored code: 
 
-    Refactored code from http://lyceum.massgis.state.ma.us/wiki/doku.php?id=googlemapsv3:home
+    Author     	: Sean Maday
+    URL			: https://github.com/SeanMaday/google-maps-api-with-wms-overlay
 */
 
 function bound(value, opt_min, opt_max) {
@@ -40,8 +39,6 @@ MercatorProjection.prototype.fromLatLngToPoint = function(latLng, opt_point) {
 
     var origin = me.pixelOrigin_;
     point.x = origin.x + latLng.lng() * me.pixelsPerLonDegree_;
-    // NOTE(appleton): Truncating to 0.9999 effectively limits latitude to
-    // 89.189.  This is about a third of a tile past the edge of the world tile.
     var siny = bound(Math.sin(degreesToRadians(latLng.lat())), -0.9999, 0.9999);
     point.y = origin.y + 0.5 * Math.log((1 + siny) / (1 - siny)) * -me.pixelsPerLonRadian_;
     return point;
@@ -110,6 +107,5 @@ function loadWMS(map, baseURL, customParams) {
 
     overlayWMS = new google.maps.ImageMapType(overlayOptions);
 
-    //map.overlayMapTypes.insertAt(0, overlayWMS);
 	map.overlayMapTypes.setAt(0, overlayWMS);
 }
