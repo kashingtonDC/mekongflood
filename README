@@ -3,6 +3,7 @@ Application: Near Real Time Flood Extent for Mekong River in Southeast Asia
 Author / Developer: Aakash Ahamed
 Affiliation: NASA Goddard Space Flight Center / Universities Space Research Organization
 Acknowledgments: John Bolten, Colin Doyle, Michael Gao, Open Science Data Cloud
+** NOTE:Algorithms and Website currently in development **
 
 Code refactored from: code.google.com/p/google-maps-api-with-wms-overlay
 Framework: Python Flask and Google App Engine
