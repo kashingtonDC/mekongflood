@@ -22,9 +22,56 @@ a:hover {
 	-webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
 	-moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
 	box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
-	width: 700px;
+	width: 720px;
 }
+
 #map-canvas {
 	width: 700px;
 	height: 600px;
+
+}
+#checkboxes {
+  	position: absolute;
+  	top: 30px;
+  	right: 10px;
+  	font-family: 'arial', 'sans-serif';
+  	font-size: 14px;
+  	background-color: white;
+  	border: 1px solid black;
+  	padding: 5px 10px;
+}
+#logo {
+  	position: absolute;
+  	top: 40px;
+  	right: 55px;
+  	background-color: white;
+}
+#opacity-slider{
+	width:50 px;
+}
+
+
+
+/*.column-left{ float: left; left:0 ; width: 33%;text-align: left;}
+.column-right{ float: right; width: 33%; right: 0; text-align: left;}
+.column-center{ display: inline-block; margin-left: 33%; width: 33%;text-align: left;}
+*/
+
+.container {
+    width:100%;
+}
+
+.inner {
+    width:101%;
+    overflow:hidden;
+}
+
+.column {
+    width:33.33333333%;
+    float:left;
+    text-align: left;
+}
+
+input[type=range] {
+  width: 200px; /* Specific width is required for Firefox. */
 }

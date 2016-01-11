@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>NASA SE Asia Flood Dash</title>	
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<link rel="stylesheet" type="text/css" href="/static/style.css" />
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
+		<script type="text/javascript" src="/static/variables.js"></script>
+		<script type="text/javascript" src="/static/wms.js"></script>
+		<script type="text/javascript">
+			var map;
+			var overlayWMS;
+			var Toggle = "on";
+			var opacityLevel;
+			function initialize() {
+				opacityLevel = document.getElementById('opacity-slider').value;
+				document.getElementById('opacity-div').innerHTML = opacityLevel;
+				var mapCenter = new google.maps.LatLng(12, 102);
+				var myOptions = {
+					zoom: 6,
+					center: mapCenter,
+					mapTypeId: google.maps.MapTypeId.HYBRID
+				}
+				map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+
+				//Add query string params to custom params
+				var pairs = location.search.substring(1).split('&');
+				for (var i = 0; i < pairs.length; i++) {
+					customParams.push(pairs[i])
+				}
+				loadWMS(map, WMSURL, customParams);
+			}
+			function ToggleLayer(i) {
+				if (Toggle == "off") {
+					map.overlayMapTypes.setAt(0, i);
+					Toggle = "on";
+				} else {
+					map.overlayMapTypes.setAt(0, null);
+					Toggle = "off";
+				}
+			}
+
+			function toggleKML(i) {
+  				if (layers[i].getMap() === null) {
+    				layers[i].setMap(map);
+  				} else {
+    				layers[i].setMap(null);
+  				}
+			}
+			function AlterOpacity() {
+				opacityLevel = document.getElementById('opacity-slider').value;
+				overlayWMS.setOpacity(parseFloat(opacityLevel));
+				document.getElementById('opacity-div').innerHTML = opacityLevel;
+			}
+
+		</script>
+		<script>
+		var layers = [];
+			layers [0] = new google.maps.KmlLayer('http://sharemap.org/mapcontent/library/Rivers_50m/Mekong_river_river.kml',{preserveViewport: true, suppressInfoWindows: false});
+			layers [1] = new google.maps.KmlLayer('http://trmm.gsfc.nasa.gov/trmm_rain/Events/GOOGLE_SOUTHEAST_ASIA_FLOOD_POTENTIAL.kml',{preserveViewport: true, suppressInfoWindows: false});
+			layers [2] = new google.maps.KmlLayer('http://trmm.gsfc.nasa.gov/trmm_rain/Events/GOOGLE_SOUTHEAST_ASIA_48hr_fcst.kml',{preserveViewport: true, suppressInfoWindows: false});
+			layers [3] = new google.maps.KmlLayer('http://trmm.gsfc.nasa.gov/trmm_rain/Events/GOOGLE_SOUTHEAST_ASIA_rain_accumulation_3hr.kml',{preserveViewport: true, suppressInfoWindows: false});
+			layers [4] = new google.maps.KmlLayer('http://matsu-seasia.opensciencedatacloud.org//layers/file/1574',{preserveViewport: true, suppressInfoWindows: false});
+			layers [5] = new google.maps.KmlLayer('http://matsu-seasia.opensciencedatacloud.org//layers/file/1573',{preserveViewport: true, suppressInfoWindows: false});
+			layers [6] = new google.maps.KmlLayer('http://192.170.232.61:8080/geoserver/DEVELOP/wms/reflect?layers=DEVELOP:NDVIChangeProduct&format=kml&SRS=epsg:4326',{preserveViewport: false, suppressInfoWindows: false});
+			layers [7] = new google.maps.TrafficLayer();
+		for (var i = 0; i < layers.length; i++) {
+			        		layers[i].setMap(null);
+			      			}
+	  	</script>
+		<script> // Google analytics 
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-72031404-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+	</head>
+	<body onload="initialize()">
+		<center>
+		<h1>Near Real Time Flooding in Southeast Asia </h1>
+		<h3>Flood Extent Derived from MODIS NDVI Change Detection Algorithms</h3>
+		<h5>Algorithms and website currently under development at NASA Goddard Space Flight Center</h5>
+     	<div id="logo">
+     	<a href="http://www.nasa.gov"><img src="http://www.nasa.gov/sites/default/files/images/nasaLogo-570x450.png" width="50" height="36" alt=""></a>
+     	</div>
+     	<br>
+		<div id="map-container"><div id="map-canvas"></div></div>
+		<div id="floodlegend"></div>
+		<a href="#"><img src="/static/legend.png" width="600" height="75" alt=""></a>
+		<br><br/>
+		<input type="checkbox" onClick="ToggleLayer(overlayWMS);" checked>Flood Extent <br />
+		<br>
+		<b>Flood Layer Opacity</b>
+		<br>
+		<input type="range" id="opacity-slider" min="0" max="1" step=".05" value=".75" onchange="AlterOpacity();">		<div id="opacity-div"></div>
+		<br>
+		</center>
+		</div>
+	</body>
+</html>

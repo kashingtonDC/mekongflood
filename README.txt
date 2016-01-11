@@ -1,0 +1,20 @@
+
+Application: Near Real Time Flood Extent for Mekong River in Southeast Asia (http://mekongflood.appspot.com)
+Author / Developer: Aakash Ahamed
+Affiliation: NASA Goddard Space Flight Center / Universities Space Research Organization
+Acknowledgments: John Bolten, Colin Doyle, Michael Gao, Open Science Data Cloud
+** NOTE: Algorithms and Website currently in development **
+
+Code refactored from: code.google.com/p/google-maps-api-with-wms-overlay
+Framework: Python Flask and Google App Engine
+Dependencies: Google App Engine Software Development Kit, Google Maps Javascript API, Python 2.7+
+
+Quickstart:
+1) Install Google App Engine Software Development Kit (https://cloud.google.com/appengine/downloads?hl=en) 
+2) Create a project on the Google Developers Console (https://console.developers.google.com/)
+3) Download this repository and change the app.yaml file to reflect your project name
+4) Follow directions to launch an application (https://cloud.google.com/appengine/docs/python/)
+5) In terminal, cd to the project directory and run dev_appserver.py ./ to run locally or appcfg.py update app.yaml to push to yourappid.appspot.com
+
+Contact: 
+Aakash Ahamed
