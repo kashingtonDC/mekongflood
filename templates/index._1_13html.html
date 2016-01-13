@@ -64,13 +64,12 @@
 		var layers = [];
 			layers [0] = new google.maps.KmlLayer('http://sharemap.org/mapcontent/library/Rivers_50m/Mekong_river_river.kml',{preserveViewport: true, suppressInfoWindows: false});
 			layers [1] = new google.maps.KmlLayer('http://trmm.gsfc.nasa.gov/trmm_rain/Events/GOOGLE_SOUTHEAST_ASIA_FLOOD_POTENTIAL.kml',{preserveViewport: true, suppressInfoWindows: false});
-			layers [2] = new google.maps.KmlLayer('http://trmm.gsfc.nasa.gov/trmm_rain/Events/GOOGLE_SOUTHEAST_ASIA_rain_accumulation_72hr.kml',{preserveViewport: true, suppressInfoWindows: false});
+			layers [2] = new google.maps.KmlLayer('http://trmm.gsfc.nasa.gov/trmm_rain/Events/GOOGLE_SOUTHEAST_ASIA_48hr_fcst.kml',{preserveViewport: true, suppressInfoWindows: false});
 			layers [3] = new google.maps.KmlLayer('http://trmm.gsfc.nasa.gov/trmm_rain/Events/GOOGLE_SOUTHEAST_ASIA_rain_accumulation_3hr.kml',{preserveViewport: true, suppressInfoWindows: false});
 			layers [4] = new google.maps.KmlLayer('http://matsu-seasia.opensciencedatacloud.org//layers/file/1574',{preserveViewport: true, suppressInfoWindows: false});
 			layers [5] = new google.maps.KmlLayer('http://matsu-seasia.opensciencedatacloud.org//layers/file/1573',{preserveViewport: true, suppressInfoWindows: false});
 			layers [6] = new google.maps.KmlLayer('http://192.170.232.61:8080/geoserver/DEVELOP/wms/reflect?layers=DEVELOP:NDVIChangeProduct&format=kml&SRS=epsg:4326',{preserveViewport: false, suppressInfoWindows: false});
 			layers [7] = new google.maps.TrafficLayer();
-			layers [8] = new google.maps.KmlLayer('http://trmm.gsfc.nasa.gov/trmm_rain/Events/GOOGLE_SOUTHEAST_ASIA_rain_accumulation_24hr.kml',{preserveViewport: true, suppressInfoWindows: false});
 		for (var i = 0; i < layers.length; i++) {
 			        		layers[i].setMap(null);
 			      			}
@@ -154,18 +153,14 @@
 				<div class="container">
 				    <div class="inner">
 				        <div class="column">
-					        <input type="checkbox" onClick="toggleKML(0)"/>&nbsp Mekong River<br>
-					        <input type="checkbox" onClick="toggleKML(5)"/>&nbsp Dams (MRC)<br>
-					        <input type="checkbox" onClick="toggleKML(4)"/>&nbsp River Gauges (MRC)<br/>
-					    </div>
+					        <input type="checkbox" onClick="toggleKML(0)"/>&nbsp Mekong River Main Stem<br>
+					        <input type="checkbox" onClick="toggleKML(1)"/>&nbsp Flood Potential (NASA)<br/>			        </div>
 				        <div class="column">
-					        <input type="checkbox" onClick="toggleKML(3)"/>&nbsp 3 Hour Rainfall (NASA)<br> 
-					        <input type="checkbox" onClick="toggleKML(8)"/>&nbsp 24 Hour Rainfall (NASA)<br> 
-					        <input type="checkbox" onClick="toggleKML(2)"/>&nbsp 72 Hour Rainfall (NASA)<br> 
-						</div>
+					        <input type="checkbox" onClick="toggleKML(3)"/>&nbsp 3 Hour Precipitation (NASA)<br>            
+					        <input type="checkbox" onClick="toggleKML(4)"/>&nbsp River Gages <br/>				        </div>
 				        <div class="column">
-					        <input type="checkbox" onClick="toggleKML(1)"/>&nbsp Flood Potential (NASA)<br/>
-					        <input type="checkbox" onClick="toggleKML(7)"/>&nbsp Traffic (Googe)<br/></div>
+					        <input type="checkbox" onClick="toggleKML(5)"/>&nbsp Dams (Click for more info) <br>
+					        <input type="checkbox" onClick="toggleKML(7)"/>&nbsp Traffic (Google Maps) <br/></div>
 				        </div>
 				    </div>
 				</div>
