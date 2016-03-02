@@ -2,7 +2,7 @@ WMSURL = "http://192.170.232.61:8080/geoserver/DEVELOP/wms?"
 
 customParams = [
 	"FORMAT=image%2Fpng",
-	"LAYERS=DEVELOP:4DayProduct",
+	"LAYERS=DEVELOP:productTest",
 	"SRS=EPSG:900913"
 ];
 
