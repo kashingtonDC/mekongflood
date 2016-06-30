@@ -1,8 +1,8 @@
-WMSURL = "http://192.170.232.40:8080/geoserver/testing/wms?"
+WMSURL = "http://192.170.232.61:8080/geoserver/DEVELOP/wms?"
 
 customParams = [
 	"FORMAT=image%2Fpng",
-	"LAYERS=testing:new_flood",
+	"LAYERS=DEVELOP:4DayProduct",
 	"SRS=EPSG:900913"
 ];
 
@@ -12,7 +12,7 @@ tileWidth = 256;
 wmsStandardParams = [
 	"REQUEST=GetMap",
 	"SERVICE=WMS&",
-	"VERSION=1.3.0",
+	"VERSION=1.1.0",
 	"TRANSPARENT=TRUE",
 	"BGCOLOR=0xFFFFFF",
 	"WIDTH="+ tileWidth,

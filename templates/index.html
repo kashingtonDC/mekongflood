@@ -68,7 +68,7 @@
 			layers [3] = new google.maps.KmlLayer('http://trmm.gsfc.nasa.gov/trmm_rain/Events/GOOGLE_SOUTHEAST_ASIA_rain_accumulation_3hr.kml',{preserveViewport: true, suppressInfoWindows: false});
 			layers [4] = new google.maps.KmlLayer('http://matsu-seasia.opensciencedatacloud.org//layers/file/1574',{preserveViewport: true, suppressInfoWindows: false});
 			layers [5] = new google.maps.KmlLayer('http://matsu-seasia.opensciencedatacloud.org//layers/file/1573',{preserveViewport: true, suppressInfoWindows: false});
-			layers [6] = new google.maps.KmlLayer('http://192.170.232.61:8080/geoserver/DEVELOP/wms/reflect?layers=DEVELOP:NDVIChangeProduct&format=kml&SRS=epsg:4326',{preserveViewport: false, suppressInfoWindows: false});
+			layers [6] = new google.maps.KmlLayer('http://192.170.232.40:8080/geoserver/mekong/wms/kml?layers=mekong:MCD_nrt_ndvi_2016_160_seasonal_4d&mode=superoverlay',{preserveViewport: false, suppressInfoWindows: false});
 			layers [7] = new google.maps.TrafficLayer();
 			layers [8] = new google.maps.KmlLayer('http://trmm.gsfc.nasa.gov/trmm_rain/Events/GOOGLE_SOUTHEAST_ASIA_rain_accumulation_24hr.kml',{preserveViewport: true, suppressInfoWindows: false});
 		for (var i = 0; i < layers.length; i++) {
@@ -166,6 +166,8 @@
 				        <div class="column">
 					        <input type="checkbox" onClick="toggleKML(1)"/>&nbsp Flood Potential (NASA)<br/>
 					        <input type="checkbox" onClick="toggleKML(7)"/>&nbsp Traffic (Google)<br/></div>
+					        <input type="checkbox" onClick="toggleKML(6)"/>&nbsp test (test)<br/></div>
+
 				        </div>
 				        <br></br>
 <div><h2> Population Currently At Risk (Beta) </h2>
